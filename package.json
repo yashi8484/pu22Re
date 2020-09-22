@@ -1,10 +1,8 @@
 {
   "scripts": {
-    "start": "snowpack dev",
+    "dev": "snowpack dev",
     "build": "snowpack build",
-    "test": "jest",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
-    "lint": "prettier --check \"src/**/*.{js,jsx}\""
+    "test": "jest"
   },
   "dependencies": {
     "preact": "^10.4.6"
