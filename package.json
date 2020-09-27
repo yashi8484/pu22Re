@@ -5,6 +5,7 @@
     "test": "jest"
   },
   "dependencies": {
+    "clsx": "^1.1.1",
     "preact": "^10.4.6"
   },
   "devDependencies": {
