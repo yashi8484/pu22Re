@@ -6,7 +6,8 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "preact": "^10.4.6"
+    "preact": "^10.4.6",
+    "recoil": "^0.0.13"
   },
   "devDependencies": {
     "@snowpack/app-scripts-preact": "^1.8.8",
