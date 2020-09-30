@@ -1,31 +1,14 @@
-import { h, Component } from 'preact';
+import { h, FunctionComponent } from 'preact';
+import { useRecoilState } from 'recoil';
+import { puzzlePanelsState } from '../../atoms';
 import { PanelsComponent } from '../../components/Panels';
-// import { puzzle$, PanelStates, panelStates$ } from '../../store';
-import { getNumericPanelPuzzle, PuzzlePanels } from '../../puzzle';
-// import { getInitialPanelStates } from '../../logic';
+import { getNumericPanelPuzzle } from '../../getPuzzle';
 
-type PanelsState = {
-  // panels: PanelStates;
-  panels: PuzzlePanels;
+export const Panels: FunctionComponent = () => {
+  const [puzzlePanels, setPuzzlePanels] = useRecoilState(puzzlePanelsState);
+
+  const puzzle = getNumericPanelPuzzle(3);
+  setPuzzlePanels(puzzle.panels);
+
+  return <PanelsComponent panels={puzzlePanels} />;
 };
-
-export class Panels extends Component<{}, PanelsState> {
-  constructor() {
-    super();
-    this.componentWillMount = this.componentWillMount.bind(this);
-  }
-
-  componentWillMount() {
-    // panelStates$.subscribe({
-    //   next: (panelStates) => this.setState({ panels: panelStates }),
-    // });
-    const puzzle = getNumericPanelPuzzle(3);
-    this.setState({ panels: puzzle.panels });
-    // puzzle$.next(puzzle);
-    // panelStates$.next(getInitialPanelStates(puzzle));
-  }
-
-  render() {
-    return <PanelsComponent panels={this.state.panels} />;
-  }
-}
