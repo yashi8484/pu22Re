@@ -3,12 +3,15 @@ interface PuzzlePanel {
   order: number;
   text: string;
 }
-type PuzzlePanels = PuzzlePanel[];
+interface EmptyPanel {
+  key: string;
+  order: number;
+}
+type Panel = PuzzlePanel | EmptyPanel;
+type Panels = Panel[];
 
 interface Puzzle {
   size: number;
-  panels: PuzzlePanels;
-  initialEmptyIndex: number;
+  panels: Panels;
 }
 type PuzzleSize = Puzzle['size'];
-type PuzzleEmptyIndex = Puzzle['initialEmptyIndex'];
