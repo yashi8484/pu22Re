@@ -1,10 +1,12 @@
+type PanelId = string;
+
 interface PuzzlePanel {
-  key: string;
+  key: PanelId;
   order: number;
   text: string;
 }
 interface EmptyPanel {
-  key: string;
+  key: PanelId;
   order: number;
 }
 type Panel = PuzzlePanel | EmptyPanel;

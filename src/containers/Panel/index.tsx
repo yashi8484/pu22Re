@@ -1,24 +1,20 @@
-import { h, Component, ComponentProps } from 'preact';
+import { h, ComponentProps, FunctionComponent } from 'preact';
+import { useRecoilState } from 'recoil';
+import { puzzlePanelsState } from '../../atoms';
 import { PanelComponent } from '../../components/Panel';
-// import { selectedPanelId$ } from '../../store';
+import { swapPanelForEmptyPanel } from '../../utils/swapPanels';
 
 type PanelProps = Pick<
   ComponentProps<typeof PanelComponent>,
   'id' | 'order' | 'text' | 'isEmpty'
 >;
 
-export class Panel extends Component<PanelProps> {
-  onClickPanel(panelId: string) {
-    // selectedPanelId$.next(panelId);
-  }
+export const Panel: FunctionComponent<PanelProps> = (props) => {
+  const [puzzlePanels, setPuzzlePanels] = useRecoilState(puzzlePanelsState);
 
-  componentDidMount() {
-    // selectedPanelId$.subscribe({
-    //   next: (panelKey) => panelKey,
-    // });
-  }
+  const onClickPanel = (id: PanelId) => {
+    setPuzzlePanels(swapPanelForEmptyPanel(id, puzzlePanels));
+  };
 
-  render() {
-    return <PanelComponent onClick={this.onClickPanel} {...this.props} />;
-  }
-}
+  return <PanelComponent {...props} onClick={onClickPanel} />;
+};
