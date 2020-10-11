@@ -17,3 +17,18 @@ interface Puzzle {
   panels: Panels;
 }
 type PuzzleSize = Puzzle['size'];
+
+interface NeighborPanelIndexes {
+  top: number;
+  left: number;
+  right: number;
+  bottom: number;
+}
+
+type PanelCoordinate = [number, number];
+interface NeighborPanelCoordinates {
+  top: PanelCoordinate;
+  left: PanelCoordinate;
+  right: PanelCoordinate;
+  bottom: PanelCoordinate;
+}

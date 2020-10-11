@@ -1,4 +1,8 @@
-import { sortPanelsByOrder, getPanelIndex, getEmptyPanelIndex } from './panels';
+import {
+  sortPanelsByOrder,
+  getPanelIndex,
+  getNeighborEmptyPanelIndex,
+} from './panels';
 
 const swapPanels = (
   targetIndexes: [number, number],
@@ -22,9 +26,15 @@ const swapPanel = (panelA: Panel, panelB: Panel): [Panel, Panel] => [
 export const swapPanelForEmptyPanel = (
   targetId: PanelId,
   panels: Panels,
+  puzzleSize: PuzzleSize,
 ): Panels => {
   const targetPanelIndex = getPanelIndex(targetId, panels);
-  const emptyPanelIndex = getEmptyPanelIndex(panels);
-
-  return swapPanels([emptyPanelIndex, targetPanelIndex], panels);
+  const emptyPanelIndex = getNeighborEmptyPanelIndex(
+    targetId,
+    panels,
+    puzzleSize,
+  );
+  return emptyPanelIndex !== null
+    ? swapPanels([emptyPanelIndex, targetPanelIndex], panels)
+    : panels;
 };

@@ -1,6 +1,6 @@
 import { h, ComponentProps, FunctionComponent } from 'preact';
-import { useRecoilState } from 'recoil';
-import { puzzlePanelsState } from '../../atoms';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { puzzlePanelsState, puzzleSizeState } from '../../atoms';
 import { PanelComponent } from '../../components/Panel';
 import { swapPanelForEmptyPanel } from '../../utils/swapPanels';
 
@@ -11,9 +11,10 @@ type PanelProps = Pick<
 
 export const Panel: FunctionComponent<PanelProps> = (props) => {
   const [puzzlePanels, setPuzzlePanels] = useRecoilState(puzzlePanelsState);
+  const puzzleSize = useRecoilValue(puzzleSizeState);
 
   const onClickPanel = (id: PanelId) => {
-    setPuzzlePanels(swapPanelForEmptyPanel(id, puzzlePanels));
+    setPuzzlePanels(swapPanelForEmptyPanel(id, puzzlePanels, puzzleSize));
   };
 
   return <PanelComponent {...props} onClick={onClickPanel} />;
