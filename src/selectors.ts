@@ -1,10 +1,8 @@
 import { selector } from 'recoil';
-import { puzzlePanelsState, puzzleSizeState } from './atoms';
+import { puzzleSizeState } from './atoms';
+import { getNumericPanelPuzzle } from './utils/getPuzzle';
 
-export const puzzleStateSelector = selector({
-  key: 'puzzleStateSelector',
-  get: ({ get }) => ({
-    size: get(puzzleSizeState),
-    panels: get(puzzlePanelsState),
-  }),
+export const stagePuzzleSelector = selector({
+  key: 'stagePuzzleSelector',
+  get: ({ get }) => getNumericPanelPuzzle(get(puzzleSizeState)),
 });

@@ -1,5 +1,3 @@
-import { isEmptyPanel } from './puzzlePanel';
-
 export const getNumericPanelPuzzle = (size: PuzzleSize): Puzzle => ({
   size: size,
   panels: [...Array(size ** 2)].map((_, n) =>

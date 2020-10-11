@@ -1,15 +1,15 @@
 import { h, FunctionComponent } from 'preact';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { puzzlePanelsState, puzzleSizeState } from '../../atoms';
 import { Panels } from '../../containers/Panels';
-import { getNumericPanelPuzzle } from '../../utils/getPuzzle';
+import { stagePuzzleSelector } from '../../selectors';
 
 export const AppComponent: FunctionComponent = () => {
+  const setPuzzleSize = useSetRecoilState(puzzleSizeState);
   const setPuzzlePanels = useSetRecoilState(puzzlePanelsState);
-  const [puzzleSize, setPuzzleSize] = useRecoilState(puzzleSizeState);
+  const puzzle = useRecoilValue(stagePuzzleSelector);
 
   setPuzzleSize(3);
-  const puzzle = getNumericPanelPuzzle(puzzleSize);
   setPuzzlePanels(puzzle.panels);
 
   return (
