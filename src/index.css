@@ -77,6 +77,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  opacity: 0.6;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.modal-card {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: whitesmoke;
 }
