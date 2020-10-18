@@ -32,3 +32,5 @@ interface NeighborPanelCoordinates {
   right: PanelCoordinate;
   bottom: PanelCoordinate;
 }
+
+type GameState = 'notReady' | 'ready';

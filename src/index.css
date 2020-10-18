@@ -85,3 +85,23 @@
   border-radius: 8px;
   background-color: whitesmoke;
 }
+
+.ready-modal-emoji {
+  margin: 12px;
+  text-align: center;
+  font-size: xx-large;
+}
+.ready-modal-title {
+  margin: 12px;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+}
+.ready-modal-button {
+  margin: 0 12px;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  background-color: royalblue;
+  color: white;
+  text-align: center;
+}

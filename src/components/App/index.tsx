@@ -1,4 +1,5 @@
 import { h, FunctionComponent } from 'preact';
+import { ReadyModal } from '../../containers/Modal/ReadyModal';
 import { Panels } from '../../containers/Panels';
 
 export const AppComponent: FunctionComponent = () => {
@@ -15,6 +16,7 @@ export const AppComponent: FunctionComponent = () => {
         />
         <Panels />
       </div>
+      <ReadyModal />
     </div>
   );
 };

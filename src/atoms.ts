@@ -15,3 +15,8 @@ export const puzzleSizeState = atom<PuzzleSize>({
   key: 'puzzleSizeState',
   default: 0,
 });
+
+export const gameState = atom<GameState>({
+  key: 'gameState',
+  default: 'notReady',
+});
