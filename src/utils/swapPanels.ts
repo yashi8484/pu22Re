@@ -13,6 +13,7 @@ const swapPanels = (
     newPanels[targetIndexes[0]],
     newPanels[targetIndexes[1]],
   );
+  // side effect...
   sortPanelsByOrder(newPanels);
 
   return newPanels;

@@ -1,5 +1,16 @@
 import { atom } from 'recoil';
 
+export const puzzleAnswerPanelsState = atom<Panels>({
+  key: 'puzzleAnswerPanelsState',
+  default: [
+    {
+      key: '',
+      order: 1,
+      text: '',
+    },
+  ],
+});
+
 export const puzzlePanelsState = atom<Panels>({
   key: 'puzzlePanelsState',
   default: [

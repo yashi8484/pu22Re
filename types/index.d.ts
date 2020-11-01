@@ -13,8 +13,9 @@ type Panel = PuzzlePanel | EmptyPanel;
 type Panels = Panel[];
 
 interface Puzzle {
-  size: number;
+  answerPanels: Panels;
   panels: Panels;
+  size: number;
 }
 type PuzzleSize = Puzzle['size'];
 
