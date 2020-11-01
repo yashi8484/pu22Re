@@ -1,6 +1,6 @@
-import { h, FunctionComponent } from 'preact';
-import { useEffect, useMemo, useState } from 'preact/hooks';
+import { h, FunctionComponent, Fragment } from 'preact';
 import { useSetRecoilState } from 'recoil';
+import { useCountDownSeconds } from '../../hooks/useCountDownSeconds';
 import { isGameStateReadySelector } from '../../selectors';
 
 type CountDownProps = {
@@ -12,41 +12,23 @@ export const CountDownComponent: FunctionComponent<CountDownProps> = ({
   initialSeconds,
   finishedText,
 }) => {
-  const [seconds, setSeconds] = useState(initialSeconds);
-  const [isActive, setIsActive] = useState(true);
-  const [intervalId, setIntervalId] = useState<number | undefined>(undefined);
+  const goNextGameState = useSetRecoilState(isGameStateReadySelector);
+  const countDownFinishedHandler = () => {
+    goNextGameState(true);
+  };
 
-  const willStart = useMemo(() => isActive && !intervalId, [
-    isActive,
-    intervalId,
-  ]);
-
-  const willFinish = useMemo(() => isActive && seconds < 0, [
-    isActive,
-    seconds,
-  ]);
-
-  const goNextState = useSetRecoilState(isGameStateReadySelector);
-
-  useEffect(() => {
-    if (willStart) {
-      const interval = window.setInterval(() => {
-        setSeconds((prevSeconds) => prevSeconds - 1);
-      }, 1000);
-      setIntervalId(interval);
-    } else if (willFinish) {
-      setIsActive(false);
-      clearInterval(intervalId);
-      setIntervalId(undefined);
-      goNextState(true);
-    }
-  }, [seconds]);
-
-  useEffect(() => () => intervalId && clearInterval(intervalId), []);
+  const { isActive, seconds } = useCountDownSeconds(
+    initialSeconds,
+    countDownFinishedHandler,
+  );
 
   return isActive ? (
-    <div className={'count-down-seconds'}>
-      {seconds === 0 ? finishedText || seconds : seconds}
-    </div>
+    <Fragment>
+      <div className={'count-down-wrapper'}>
+        <div className={'count-down-seconds'}>
+          {seconds === 0 ? finishedText || seconds : seconds}
+        </div>
+      </div>
+    </Fragment>
   ) : null;
 };
