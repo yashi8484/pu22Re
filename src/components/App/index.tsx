@@ -2,11 +2,16 @@ import { h, FunctionComponent } from 'preact';
 import { useRecoilValue } from 'recoil';
 import { ReadyModal } from '../../containers/Modal/ReadyModal';
 import { Panels } from '../../containers/Panels';
-import { isGameStateReadySelector } from '../../selectors';
+import {
+  isGameStateClearedSelector,
+  isGameStateReadySelector,
+} from '../../selectors';
 import { CountDownComponent } from '../CountDown';
+import { ClearedModalComponent } from '../Modal/ClearedModal';
 
 export const AppComponent: FunctionComponent = () => {
   const isReady = useRecoilValue(isGameStateReadySelector);
+  const isCleared = useRecoilValue(isGameStateClearedSelector);
 
   return (
     <div className="app-wrapper">
@@ -25,6 +30,7 @@ export const AppComponent: FunctionComponent = () => {
       {isReady ? (
         <CountDownComponent initialSeconds={3} finishedText="START!" />
       ) : null}
+      <ClearedModalComponent visible={isCleared} />
     </div>
   );
 };

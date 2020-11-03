@@ -1,11 +1,14 @@
+import { swapPanels } from './swapPanels';
+
 export const getNumericPanelPuzzle = (size: PuzzleSize): Puzzle => {
-  const panels = [...Array(size ** 2)].map((_, n) =>
+  const answerPanels = [...Array(size ** 2)].map((_, n) =>
     n === 0
       ? { key: `panel-${n + 1}`, order: n + 1 }
       : { key: `panel-${n + 1}`, order: n + 1, text: String(n + 1) },
   );
+  const panels = swapPanels([0, 1], answerPanels);
   return {
-    answerPanels: panels.slice(0),
+    answerPanels: answerPanels,
     panels: panels,
     size: size,
   };
