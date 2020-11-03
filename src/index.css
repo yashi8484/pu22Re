@@ -117,9 +117,20 @@
   align-items: center;
   background-color: rgba(0, 0, 0, 0.6);
 }
-
 .count-down-seconds {
   font-size: xx-large;
   font-weight: bold;
   color: white;
+}
+
+.cleared-modal-emoji {
+  margin: 12px;
+  text-align: center;
+  font-size: xx-large;
+}
+.cleared-modal-title {
+  margin: 12px;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
 }
