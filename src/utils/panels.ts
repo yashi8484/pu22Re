@@ -48,3 +48,12 @@ export const inPuzzleField = (
 
 export const sortPanelsByOrder = (panels: Panels): Panels =>
   panels.sort((a, b) => a.order - b.order);
+
+export const isCorrect = (
+  panels: Panels,
+  answerPanels: Puzzle['answerPanels'],
+): boolean =>
+  answerPanels.every((ap) => {
+    const p = panels.find((p) => p.key === ap.key);
+    return p && p.order === ap.order;
+  });
