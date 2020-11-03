@@ -44,6 +44,12 @@ export const isGameStateReadySelector = selector({
   set: ({ set }) => set(gameState, 'playing'),
 });
 
+export const isGameStatePlayingSelector = selector({
+  key: 'isGameStatePlayingSelector',
+  get: ({ get }) => get(gameState) === 'playing',
+  set: ({ set }) => set(gameState, 'cleared'),
+});
+
 export const isGameStateClearedSelector = selector({
   key: 'isGameStateClearedSelector',
   get: ({ get }) => get(gameState) === 'cleared',
