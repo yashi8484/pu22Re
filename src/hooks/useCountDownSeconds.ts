@@ -18,6 +18,8 @@ export const useCountDownSeconds = (
     seconds,
   ]);
 
+  const willStop = useMemo(() => !isActive && seconds > 0, [isActive, seconds]);
+
   const handleFinished = useCallback(() => {
     setIsActive(false);
     clearInterval(intervalId);
@@ -33,6 +35,9 @@ export const useCountDownSeconds = (
       setIntervalId(interval);
     } else if (willFinish) {
       handleFinished();
+    } else if (willStop) {
+      clearInterval(intervalId);
+      setIntervalId(undefined);
     }
   }, [isActive, seconds]);
 

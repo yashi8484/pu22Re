@@ -21,7 +21,10 @@ export const AppComponent: FunctionComponent = () => {
   return (
     <div className="app-wrapper">
       <div className="app-content">
-        <TimerComponent initialSeconds={stageTimeLimit} isActive={isPlaying} />
+        <TimerComponent
+          initialSeconds={stageTimeLimit}
+          isActive={isPlaying && !isCleared}
+        />
         <img
           src=""
           alt="puzzle"
