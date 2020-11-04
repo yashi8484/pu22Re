@@ -34,4 +34,6 @@ interface NeighborPanelCoordinates {
   bottom: PanelCoordinate;
 }
 
+type StageTimeLimit = number;
+
 type GameState = 'notReady' | 'ready' | 'playing' | 'cleared';

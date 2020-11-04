@@ -27,6 +27,11 @@ export const puzzleSizeState = atom<PuzzleSize>({
   default: 0,
 });
 
+export const stageTimeLimitState = atom<StageTimeLimit>({
+  key: 'stageTimeLimitState',
+  default: 180,
+});
+
 export const gameState = atom<GameState>({
   key: 'gameState',
   default: 'notReady',

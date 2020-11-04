@@ -1,22 +1,27 @@
 import { h, FunctionComponent } from 'preact';
 import { useRecoilValue } from 'recoil';
+import { stageTimeLimitState } from '../../atoms';
 import { ReadyModal } from '../../containers/Modal/ReadyModal';
 import { Panels } from '../../containers/Panels';
 import {
   isGameStateClearedSelector,
+  isGameStatePlayingSelector,
   isGameStateReadySelector,
 } from '../../selectors';
 import { CountDownComponent } from '../CountDown';
 import { ClearedModalComponent } from '../Modal/ClearedModal';
+import { TimerComponent } from '../Timer';
 
 export const AppComponent: FunctionComponent = () => {
   const isReady = useRecoilValue(isGameStateReadySelector);
+  const isPlaying = useRecoilValue(isGameStatePlayingSelector);
   const isCleared = useRecoilValue(isGameStateClearedSelector);
+  const stageTimeLimit = useRecoilValue(stageTimeLimitState);
 
   return (
     <div className="app-wrapper">
       <div className="app-content">
-        <div className="timer">88:88</div>
+        <TimerComponent initialSeconds={stageTimeLimit} isActive={isPlaying} />
         <img
           src=""
           alt="puzzle"
