@@ -5,7 +5,7 @@ export const useCountDownSeconds = (
   finishedHandler?: () => void,
 ) => {
   const [seconds, setSeconds] = useState(initialSeconds);
-  const [isActive, setIsActive] = useState(true);
+  const [isActive, setIsActive] = useState(false);
   const [intervalId, setIntervalId] = useState<number | undefined>(undefined);
 
   const willStart = useMemo(() => isActive && !intervalId, [
@@ -34,9 +34,9 @@ export const useCountDownSeconds = (
     } else if (willFinish) {
       handleFinished();
     }
-  }, [seconds]);
+  }, [isActive, seconds]);
 
   useEffect(() => () => intervalId && clearInterval(intervalId), []);
 
-  return { isActive, seconds };
+  return { isActive, setIsActive, seconds };
 };
