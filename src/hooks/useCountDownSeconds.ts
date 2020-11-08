@@ -21,11 +21,8 @@ export const useCountDownSeconds = (
   const willStop = useMemo(() => !isActive && seconds > 0, [isActive, seconds]);
 
   const handleFinished = useCallback(() => {
-    setIsActive(false);
-    clearInterval(intervalId);
-    setIntervalId(undefined);
     finishedHandler && finishedHandler();
-  }, []);
+  }, [finishedHandler]);
 
   useEffect(() => {
     if (willStart) {
@@ -34,6 +31,10 @@ export const useCountDownSeconds = (
       }, 1000);
       setIntervalId(interval);
     } else if (willFinish) {
+      setIsActive(false);
+      setSeconds(0);
+      clearInterval(intervalId);
+      setIntervalId(undefined);
       handleFinished();
     } else if (willStop) {
       clearInterval(intervalId);

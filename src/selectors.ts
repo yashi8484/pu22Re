@@ -44,13 +44,22 @@ export const isGameStateReadySelector = selector({
   set: ({ set }) => set(gameState, 'playing'),
 });
 
-export const isGameStatePlayingSelector = selector({
+export const isGameStatePlayingSelector = selector<boolean>({
   key: 'isGameStatePlayingSelector',
   get: ({ get }) => get(gameState) === 'playing',
-  set: ({ set }) => set(gameState, 'cleared'),
+  set: ({ set }, newValue) => {
+    if (!(newValue instanceof DefaultValue)) {
+      newValue ? set(gameState, 'cleared') : set(gameState, 'failed');
+    }
+  },
 });
 
 export const isGameStateClearedSelector = selector({
   key: 'isGameStateClearedSelector',
   get: ({ get }) => get(gameState) === 'cleared',
+});
+
+export const isGameStateFailedSelector = selector({
+  key: 'isGameStateFailedSelector',
+  get: ({ get }) => get(gameState) === 'failed',
 });

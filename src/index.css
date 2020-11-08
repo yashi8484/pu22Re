@@ -134,3 +134,15 @@
   font-size: x-large;
   font-weight: bold;
 }
+
+.failed-modal-emoji {
+  margin: 12px;
+  text-align: center;
+  font-size: xx-large;
+}
+.failed-modal-title {
+  margin: 12px;
+  text-align: center;
+  font-size: x-large;
+  font-weight: bold;
+}
