@@ -1,6 +1,7 @@
 import { h, FunctionComponent } from 'preact';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { stageTimeLimitState } from '../../atoms';
+import { CountDown } from '../../containers/CountDown';
 import { ReadyModal } from '../../containers/Modal/ReadyModal';
 import { Panels } from '../../containers/Panels';
 import {
@@ -9,7 +10,6 @@ import {
   isGameStatePlayingSelector,
   isGameStateReadySelector,
 } from '../../selectors';
-import { CountDownComponent } from '../CountDown';
 import { ClearedModalComponent } from '../Modal/ClearedModal';
 import { FailedModalComponent } from '../Modal/FailedModal';
 import { TimerComponent } from '../Timer';
@@ -40,9 +40,7 @@ export const AppComponent: FunctionComponent = () => {
         <Panels />
       </div>
       <ReadyModal />
-      {isReady ? (
-        <CountDownComponent initialSeconds={3} finishedText="START!" />
-      ) : null}
+      {isReady ? <CountDown initialSeconds={3} finishedText="START!" /> : null}
       <ClearedModalComponent visible={isCleared} />
       <FailedModalComponent visible={isFailed} />
     </div>
