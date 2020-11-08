@@ -8,6 +8,4 @@ type OverlayProps = {
 export const OverlayComponent: FunctionComponent<OverlayProps> = ({
   visible,
   children,
-}) => {
-  return visible ? <div className={'overlay'}>{children}</div> : null;
-};
+}) => (visible ? <div className={'overlay'}>{children}</div> : null);

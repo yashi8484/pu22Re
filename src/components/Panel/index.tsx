@@ -15,18 +15,12 @@ export const PanelComponent: FunctionComponent<PanelProps> = ({
   text,
   isEmpty = false,
   onClick,
-}) => {
-  const onClickHandler: HTMLDivElement['onclick'] = () => {
-    onClick && onClick(id);
-  };
-
-  return (
-    <div
-      key={id}
-      className={clsx('panel', `order-${order}`, { empty: !!isEmpty })}
-      onClick={onClickHandler}
-    >
-      {text}
-    </div>
-  );
-};
+}) => (
+  <div
+    key={id}
+    className={clsx('panel', `order-${order}`, { empty: !!isEmpty })}
+    onClick={() => onClick && onClick(id)}
+  >
+    {text}
+  </div>
+);

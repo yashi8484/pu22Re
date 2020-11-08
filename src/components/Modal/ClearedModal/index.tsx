@@ -7,11 +7,9 @@ type ClearedModalProps = {
 
 export const ClearedModalComponent: FunctionComponent<ClearedModalProps> = ({
   visible,
-}) => {
-  return (
-    <ModalComponent visible={visible}>
-      <div className="cleared-modal-emoji">🎉</div>
-      <div className="cleared-modal-title">CONGRATULATIONS!</div>
-    </ModalComponent>
-  );
-};
+}) => (
+  <ModalComponent visible={visible}>
+    <div className="cleared-modal-emoji">🎉</div>
+    <div className="cleared-modal-title">CONGRATULATIONS!</div>
+  </ModalComponent>
+);

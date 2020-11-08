@@ -9,10 +9,8 @@ type ModalProps = {
 export const ModalComponent: FunctionComponent<ModalProps> = ({
   visible,
   children,
-}) => {
-  return (
-    <OverlayComponent visible={visible}>
-      <div className="modal-card">{children}</div>
-    </OverlayComponent>
-  );
-};
+}) => (
+  <OverlayComponent visible={visible}>
+    <div className="modal-card">{children}</div>
+  </OverlayComponent>
+);
