@@ -1,24 +1,38 @@
 import { h, FunctionComponent } from 'preact';
-import { useEffect } from 'preact/hooks';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useCallback, useEffect } from 'preact/hooks';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { stageTimeLimitState } from '../../atoms';
 import { AppComponent } from '../../components/App';
 import {
   currentStagePuzzleSelector,
+  isGameStateClearedSelector,
+  isGameStateFailedSelector,
   isGameStatePlayingSelector,
+  isGameStateReadySelector,
   stagePuzzleSelector,
 } from '../../selectors';
 import { isCorrect } from '../../utils/panels';
 
 export const App: FunctionComponent = () => {
   const stagePuzzle = useRecoilValue(stagePuzzleSelector);
+  const stageTimeLimit = useRecoilValue(stageTimeLimitState);
   const [currentPuzzle, setCurrentPuzzle] = useRecoilState(
     currentStagePuzzleSelector,
   );
-  const goNextGameState = useSetRecoilState(isGameStatePlayingSelector);
+  const isReady = useRecoilValue(isGameStateReadySelector);
+  const [isPlaying, goNextGameState] = useRecoilState(
+    isGameStatePlayingSelector,
+  );
+  const isCleared = useRecoilValue(isGameStateClearedSelector);
+  const isFailed = useRecoilValue(isGameStateFailedSelector);
+
+  const onTimerFinished = useCallback(() => {
+    goNextGameState(false);
+  }, []);
 
   useEffect(() => {
     setCurrentPuzzle(stagePuzzle);
-  }, [stagePuzzle, setCurrentPuzzle]);
+  }, [stagePuzzle]);
 
   useEffect(() => {
     if (isCorrect(currentPuzzle.panels, stagePuzzle.answerPanels)) {
@@ -26,5 +40,14 @@ export const App: FunctionComponent = () => {
     }
   }, [stagePuzzle, currentPuzzle.panels]);
 
-  return <AppComponent />;
+  return (
+    <AppComponent
+      timeLimit={stageTimeLimit}
+      isReady={isReady}
+      isPlaying={isPlaying}
+      isCleared={isCleared}
+      isFailed={isFailed}
+      onTimerFinished={onTimerFinished}
+    />
+  );
 };
