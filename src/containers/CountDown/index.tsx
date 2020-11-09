@@ -1,30 +1,26 @@
 import { h, ComponentProps, FunctionComponent } from 'preact';
-import { useCallback, useEffect } from 'preact/hooks';
-import { useSetRecoilState } from 'recoil';
+import { useEffect } from 'preact/hooks';
 import { CountDownComponent } from '../../components/CountDown';
 import { useCountDownSeconds } from '../../hooks/useCountDownSeconds';
-import { isPlayingSelector } from '../../selectors';
 
 type CountDownProps = Pick<
   ComponentProps<typeof CountDownComponent>,
   'finishedText'
 > & {
   initialSeconds: number;
+  onFinished: () => void;
 };
 
 export const CountDown: FunctionComponent<CountDownProps> = ({
   finishedText,
   initialSeconds,
+  onFinished,
 }) => {
-  const setIsPlaying = useSetRecoilState(isPlayingSelector);
-  const countDownFinishedHandler = useCallback(() => {
-    setIsPlaying(true);
-  }, []);
   const { setIsActive, seconds } = useCountDownSeconds(
     initialSeconds,
-    countDownFinishedHandler,
+    onFinished,
   );
-  useEffect(() => setIsActive(true), [setIsActive]);
+  useEffect(() => setIsActive(true), []);
 
   return <CountDownComponent seconds={seconds} finishedText={finishedText} />;
 };

@@ -20,9 +20,13 @@ export const App: FunctionComponent = () => {
     currentStagePuzzleSelector,
   );
   const isReady = useRecoilValue(isReadySelector);
-  const isPlaying = useRecoilValue(isPlayingSelector);
+  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingSelector);
   const [isCleared, setIsCleared] = useRecoilState(isClearedSelector);
   const [isFailed, setIsFailed] = useRecoilState(isFailedSelector);
+
+  const onCountDownFinished = useCallback(() => {
+    setIsPlaying(true);
+  }, []);
 
   const onTimerFinished = useCallback(() => {
     setIsFailed(true);
@@ -45,6 +49,7 @@ export const App: FunctionComponent = () => {
       isPlaying={isPlaying}
       isCleared={isCleared}
       isFailed={isFailed}
+      onCountDownFinished={onCountDownFinished}
       onTimerFinished={onTimerFinished}
     />
   );

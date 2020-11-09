@@ -12,6 +12,7 @@ type AppProps = {
   isPlaying: boolean;
   isCleared: boolean;
   isFailed: boolean;
+  onCountDownFinished: () => void;
   onTimerFinished: () => void;
 };
 
@@ -21,6 +22,7 @@ export const AppComponent: FunctionComponent<AppProps> = ({
   isPlaying,
   isCleared,
   isFailed,
+  onCountDownFinished,
   onTimerFinished,
 }) => (
   <div className="app-wrapper">
@@ -40,7 +42,13 @@ export const AppComponent: FunctionComponent<AppProps> = ({
       <Panels />
     </div>
     <ReadyModal />
-    {isReady ? <CountDown initialSeconds={3} finishedText="START!" /> : null}
+    {isReady ? (
+      <CountDown
+        initialSeconds={3}
+        finishedText="START!"
+        onFinished={() => onCountDownFinished()}
+      />
+    ) : null}
     <ClearedModalComponent visible={isCleared} />
     <FailedModalComponent visible={isFailed} />
   </div>
