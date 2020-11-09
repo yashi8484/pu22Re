@@ -1,17 +1,16 @@
 import { h, FunctionComponent } from 'preact';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { ReadyModalComponent } from '../../../components/Modal/ReadyModal';
-import { isGameStateNotReadySelector } from '../../../selectors';
+import { isReadySelector, isNotReadySelector } from '../../../selectors';
 
 export const ReadyModal: FunctionComponent = () => {
-  const [isNotReady, goNextGameState] = useRecoilState(
-    isGameStateNotReadySelector,
-  );
+  const isNotReady = useRecoilValue(isNotReadySelector);
+  const setIsReady = useSetRecoilState(isReadySelector);
 
   return (
     <ReadyModalComponent
       visible={isNotReady}
-      onClickButton={() => goNextGameState(true)}
+      onClickButton={() => setIsReady(true)}
     />
   );
 };
