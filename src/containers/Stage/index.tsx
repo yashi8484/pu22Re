@@ -17,7 +17,7 @@ export const Stage: FunctionComponent = () => {
   const isReady = useRecoilValue(isReadySelector);
   const setIsPlaying = useSetRecoilState(isPlayingSelector);
   const [isCleared, setIsCleared] = useRecoilState(isClearedSelector);
-  const [isFailed, setIsFailed] = useRecoilState(isFailedSelector);
+  const setIsFailed = useSetRecoilState(isFailedSelector);
 
   const onCountDownFinished = useCallback(() => {
     setIsPlaying(true);
@@ -37,7 +37,6 @@ export const Stage: FunctionComponent = () => {
     <StageComponent
       isReady={isReady}
       isCleared={isCleared}
-      isFailed={isFailed}
       onCountDownFinished={onCountDownFinished}
       onTimerFinished={onTimerFinished}
     />

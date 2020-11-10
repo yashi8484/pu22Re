@@ -53,6 +53,7 @@ export const isCorrect = (
   panels: Panels,
   answerPanels: Puzzle['answerPanels'],
 ): boolean =>
+  answerPanels.length > 0 &&
   answerPanels.every((ap) => {
     const p = panels.find((p) => p.key === ap.key);
     return p && p.order === ap.order;

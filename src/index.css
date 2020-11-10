@@ -134,3 +134,11 @@
   font-size: x-large;
   font-weight: bold;
 }
+.failed-modal-button {
+  margin: 0 12px;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  background-color: royalblue;
+  color: white;
+  text-align: center;
+}

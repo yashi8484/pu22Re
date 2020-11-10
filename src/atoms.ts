@@ -8,24 +8,12 @@ export const stageIndexState = atom<number>({
 
 export const puzzleAnswerPanelsState = atom<Panels>({
   key: 'puzzleAnswerPanelsState',
-  default: [
-    {
-      key: '',
-      order: 1,
-      text: '',
-    },
-  ],
+  default: [],
 });
 
 export const puzzlePanelsState = atom<Panels>({
   key: 'puzzlePanelsState',
-  default: [
-    {
-      key: '',
-      order: 1,
-      text: '',
-    },
-  ],
+  default: [],
 });
 
 export const puzzleSizeState = atom<PuzzleSize>({

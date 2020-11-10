@@ -1,15 +1,14 @@
 import { h, FunctionComponent, Fragment } from 'preact';
 import { CountDown } from '../../containers/CountDown';
+import { FailedModal } from '../../containers/Modal/FailedModal';
 import { ReadyModal } from '../../containers/Modal/ReadyModal';
 import { Panels } from '../../containers/Panels';
 import { Timer } from '../../containers/Timer';
 import { ClearedModalComponent } from '../Modal/ClearedModal';
-import { FailedModalComponent } from '../Modal/FailedModal';
 
 type StageProps = {
   isReady: boolean;
   isCleared: boolean;
-  isFailed: boolean;
   onCountDownFinished: () => void;
   onTimerFinished: () => void;
 };
@@ -17,7 +16,6 @@ type StageProps = {
 export const StageComponent: FunctionComponent<StageProps> = ({
   isReady,
   isCleared,
-  isFailed,
   onCountDownFinished,
   onTimerFinished,
 }) => (
@@ -42,6 +40,6 @@ export const StageComponent: FunctionComponent<StageProps> = ({
       />
     ) : null}
     <ClearedModalComponent visible={isCleared} />
-    <FailedModalComponent visible={isFailed} />
+    <FailedModal />
   </Fragment>
 );
