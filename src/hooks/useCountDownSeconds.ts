@@ -45,6 +45,7 @@ export const useCountDownSeconds = (
     }
   }, [willStart, willFinish, willStop, seconds]);
 
+  useEffect(() => setSeconds(initialSeconds), [initialSeconds]);
   useEffect(() => cleanup, []);
 
   return { isActive, setIsActive, seconds };
