@@ -1,4 +1,10 @@
 import { atom } from 'recoil';
+import { getNumericPanelPuzzle } from './utils/getPuzzle';
+
+export const stageIndexState = atom<number>({
+  key: 'stageIndexState',
+  default: 0,
+});
 
 export const puzzleAnswerPanelsState = atom<Panels>({
   key: 'puzzleAnswerPanelsState',
@@ -27,12 +33,17 @@ export const puzzleSizeState = atom<PuzzleSize>({
   default: 0,
 });
 
-export const stageTimeLimitState = atom<StageTimeLimit>({
-  key: 'stageTimeLimitState',
-  default: 180,
+export const timeLimitState = atom<StageTimeLimit>({
+  key: 'timeLimitState',
+  default: 0,
 });
 
 export const gameState = atom<GameState>({
   key: 'gameState',
   default: 'notReady',
+});
+
+export const stagesState = atom<Stages>({
+  key: 'stagesState',
+  default: [{ puzzle: getNumericPanelPuzzle(3), timeLimit: 142 }],
 });

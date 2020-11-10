@@ -4,30 +4,24 @@ import {
   puzzleAnswerPanelsState,
   puzzlePanelsState,
   puzzleSizeState,
+  stagesState,
+  timeLimitState,
 } from './atoms';
-import { getNumericPanelPuzzle } from './utils/getPuzzle';
 
-export const stagePuzzleSelector = selector({
-  key: 'stagePuzzleSelector',
-  get: () => getNumericPanelPuzzle(3),
-});
-
-export const currentStagePuzzleSelector = selector<Puzzle>({
-  key: 'currentStagePuzzleSelector',
-  get: ({ get }) => ({
-    answerPanels: get(puzzleAnswerPanelsState),
-    panels: get(puzzlePanelsState),
-    size: get(puzzleSizeState),
-  }),
+export const currentStageSelector = selector<Stage>({
+  key: 'currentStageSelector',
+  get: ({ get }) => get(stagesState)[0],
   set: ({ set, reset }, newValue) => {
     if (newValue instanceof DefaultValue) {
       reset(puzzleAnswerPanelsState);
       reset(puzzlePanelsState);
       reset(puzzleSizeState);
+      reset(timeLimitState);
     } else {
-      set(puzzleAnswerPanelsState, newValue.answerPanels);
-      set(puzzlePanelsState, newValue.panels);
-      set(puzzleSizeState, newValue.size);
+      set(puzzleAnswerPanelsState, newValue.puzzle.answerPanels);
+      set(puzzlePanelsState, newValue.puzzle.panels);
+      set(puzzleSizeState, newValue.puzzle.size);
+      set(timeLimitState, newValue.timeLimit);
     }
   },
 });
@@ -44,7 +38,7 @@ export const isReadySelector = selector({
   set: ({ set }) => set(gameState, 'ready'),
 });
 
-export const isPlayingSelector = selector<boolean>({
+export const isPlayingSelector = selector({
   key: 'isPlayingSelector',
   get: ({ get }) => get(gameState) === 'playing',
   set: ({ set }) => set(gameState, 'playing'),

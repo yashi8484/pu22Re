@@ -34,6 +34,11 @@ interface NeighborPanelCoordinates {
   bottom: PanelCoordinate;
 }
 
-type StageTimeLimit = number;
+type Stage = {
+  puzzle: Puzzle;
+  timeLimit: number;
+};
+type StageTimeLimit = Stage['timeLimit'];
+type Stages = Stage[];
 
 type GameState = 'notReady' | 'ready' | 'playing' | 'cleared' | 'failed';

@@ -3,12 +3,11 @@
   margin: 0 auto;
 }
 
-.app-content {
+.stage-content {
   display: grid;
   grid-template-columns: auto auto;
   grid-gap: 16px;
 }
-
 .puzzle-image {
   width: auto;
   height: auto;

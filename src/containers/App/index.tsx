@@ -1,56 +1,21 @@
 import { h, FunctionComponent } from 'preact';
-import { useCallback, useEffect } from 'preact/hooks';
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { stageTimeLimitState } from '../../atoms';
+import { useEffect } from 'preact/hooks';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { stageIndexState, stagesState } from '../../atoms';
 import { AppComponent } from '../../components/App';
-import {
-  currentStagePuzzleSelector,
-  isClearedSelector,
-  isFailedSelector,
-  isPlayingSelector,
-  isReadySelector,
-  stagePuzzleSelector,
-} from '../../selectors';
-import { isCorrect } from '../../utils/panels';
+import { currentStageSelector, isNotReadySelector } from '../../selectors';
 
 export const App: FunctionComponent = () => {
-  const stagePuzzle = useRecoilValue(stagePuzzleSelector);
-  const stageTimeLimit = useRecoilValue(stageTimeLimitState);
-  const [currentPuzzle, setCurrentPuzzle] = useRecoilState(
-    currentStagePuzzleSelector,
-  );
-  const isReady = useRecoilValue(isReadySelector);
-  const [isPlaying, setIsPlaying] = useRecoilState(isPlayingSelector);
-  const [isCleared, setIsCleared] = useRecoilState(isClearedSelector);
-  const [isFailed, setIsFailed] = useRecoilState(isFailedSelector);
+  const stages = useRecoilValue(stagesState);
+  const currentStageIndex = useRecoilValue(stageIndexState);
+  const setCurrentStage = useSetRecoilState(currentStageSelector);
+  const setIsNotReady = useSetRecoilState(isNotReadySelector);
 
-  const onCountDownFinished = useCallback(() => {
-    setIsPlaying(true);
-  }, []);
-
-  const onTimerFinished = useCallback(() => {
-    setIsFailed(true);
-  }, []);
+  useEffect(() => setIsNotReady(true), []);
 
   useEffect(() => {
-    setCurrentPuzzle(stagePuzzle);
-  }, [stagePuzzle]);
+    setCurrentStage(stages[currentStageIndex]);
+  }, [currentStageIndex]);
 
-  useEffect(() => {
-    if (isCorrect(currentPuzzle.panels, stagePuzzle.answerPanels)) {
-      setIsCleared(true);
-    }
-  }, [stagePuzzle, currentPuzzle.panels]);
-
-  return (
-    <AppComponent
-      timeLimit={stageTimeLimit}
-      isReady={isReady}
-      isPlaying={isPlaying}
-      isCleared={isCleared}
-      isFailed={isFailed}
-      onCountDownFinished={onCountDownFinished}
-      onTimerFinished={onTimerFinished}
-    />
-  );
+  return <AppComponent />;
 };
