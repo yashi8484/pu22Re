@@ -3,14 +3,8 @@
   margin: 0 auto;
 }
 
-.stage-content {
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-gap: 16px;
-}
-.puzzle-image {
-  width: auto;
-  height: auto;
+.stage-timer {
+  margin: 0 auto;
 }
 
 .timer {

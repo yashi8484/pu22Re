@@ -18,16 +18,9 @@ export const StageComponent: FunctionComponent<StageProps> = ({
   onTimerFinished,
 }) => (
   <Fragment>
-    <div className="stage-content">
+    <Panels />
+    <div className="stage-timer">
       <Timer onFinished={() => onTimerFinished()} />
-      <img
-        src=""
-        alt="puzzle"
-        width="auto"
-        height="auto"
-        className="puzzle-image"
-      />
-      <Panels />
     </div>
     <ReadyModal />
     {isReady ? (
