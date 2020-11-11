@@ -10,6 +10,7 @@ import { stageIndexState } from '../../../atoms';
 import { ClearedModalComponent } from '../../../components/Modal/ClearedModal';
 import {
   currentStageSelector,
+  isAllClearedSelector,
   isClearedSelector,
   isNotReadySelector,
   nextStageSelector,
@@ -20,6 +21,7 @@ export const ClearedModal: FunctionComponent = () => {
   const nextStage = useRecoilValue(nextStageSelector);
   const resetCurrentStage = useResetRecoilState(currentStageSelector);
   const setIsNotReady = useSetRecoilState(isNotReadySelector);
+  const setIsAllCleared = useSetRecoilState(isAllClearedSelector);
   const [stageIndex, setStageIndex] = useRecoilState(stageIndexState);
 
   const onClickButton = useCallback(() => {
@@ -27,6 +29,8 @@ export const ClearedModal: FunctionComponent = () => {
       resetCurrentStage();
       setIsNotReady(true);
       setStageIndex(stageIndex + 1);
+    } else {
+      setIsAllCleared(true);
     }
   }, [stageIndex]);
 

@@ -66,3 +66,9 @@ export const isFailedSelector = selector({
   get: ({ get }) => get(gameState) === 'failed',
   set: ({ set }) => set(gameState, 'failed'),
 });
+
+export const isAllClearedSelector = selector({
+  key: 'isAllClearedSelector',
+  get: ({ get }) => get(gameState) === 'allCleared',
+  set: ({ set }) => set(gameState, 'allCleared'),
+});

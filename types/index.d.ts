@@ -41,4 +41,10 @@ type Stage = {
 type StageTimeLimit = Stage['timeLimit'];
 type Stages = Stage[];
 
-type GameState = 'notReady' | 'ready' | 'playing' | 'cleared' | 'failed';
+type GameState =
+  | 'notReady'
+  | 'ready'
+  | 'playing'
+  | 'cleared'
+  | 'failed'
+  | 'allCleared';
