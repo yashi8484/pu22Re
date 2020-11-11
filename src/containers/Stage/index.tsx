@@ -1,6 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 import { useCallback, useEffect } from 'preact/hooks';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { puzzleAnswerPanelsState, puzzlePanelsState } from '../../atoms';
 import { StageComponent } from '../../components/Stage';
 import {
@@ -16,7 +16,7 @@ export const Stage: FunctionComponent = () => {
   const panels = useRecoilValue(puzzlePanelsState);
   const isReady = useRecoilValue(isReadySelector);
   const setIsPlaying = useSetRecoilState(isPlayingSelector);
-  const [isCleared, setIsCleared] = useRecoilState(isClearedSelector);
+  const setIsCleared = useSetRecoilState(isClearedSelector);
   const setIsFailed = useSetRecoilState(isFailedSelector);
 
   const onCountDownFinished = useCallback(() => {
@@ -36,7 +36,6 @@ export const Stage: FunctionComponent = () => {
   return (
     <StageComponent
       isReady={isReady}
-      isCleared={isCleared}
       onCountDownFinished={onCountDownFinished}
       onTimerFinished={onTimerFinished}
     />

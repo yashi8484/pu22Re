@@ -97,7 +97,8 @@
   font-weight: bold;
 }
 .ready-modal-button {
-  margin: 0 12px;
+  display: block;
+  margin: 0 auto;
   padding: 8px 24px;
   border-radius: 9999px;
   background-color: royalblue;
@@ -122,6 +123,15 @@
   font-size: x-large;
   font-weight: bold;
 }
+.cleared-modal-button {
+  display: block;
+  margin: 0 auto;
+  padding: 8px 24px;
+  border-radius: 9999px;
+  background-color: royalblue;
+  color: white;
+  text-align: center;
+}
 
 .failed-modal-emoji {
   margin: 12px;
@@ -135,7 +145,8 @@
   font-weight: bold;
 }
 .failed-modal-button {
-  margin: 0 12px;
+  display: block;
+  margin: 0 auto;
   padding: 8px 24px;
   border-radius: 9999px;
   background-color: royalblue;
