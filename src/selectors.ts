@@ -4,13 +4,14 @@ import {
   puzzleAnswerPanelsState,
   puzzlePanelsState,
   puzzleSizeState,
+  stageIndexState,
   stagesState,
   timeLimitState,
 } from './atoms';
 
 export const currentStageSelector = selector<Stage>({
   key: 'currentStageSelector',
-  get: ({ get }) => get(stagesState)[0],
+  get: ({ get }) => get(stagesState)[get(stageIndexState)],
   set: ({ set, reset }, newValue) => {
     if (newValue instanceof DefaultValue) {
       reset(puzzleAnswerPanelsState);
@@ -23,6 +24,16 @@ export const currentStageSelector = selector<Stage>({
       set(puzzleSizeState, newValue.puzzle.size);
       set(timeLimitState, newValue.timeLimit);
     }
+  },
+});
+
+export const nextStageSelector = selector<Stage | undefined>({
+  key: 'nextStageSelector',
+  get: ({ get }) => {
+    const nextStageIndex = get(stageIndexState) + 1;
+    return nextStageIndex < get(stagesState).length
+      ? get(stagesState)[nextStageIndex]
+      : undefined;
   },
 });
 
