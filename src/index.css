@@ -64,6 +64,8 @@ html {
   @apply p-4;
   @apply rounded-xl;
   @apply bg-white;
+
+  box-shadow: 20px 20px #0678d6;
 }
 
 .ready-modal-emoji,
