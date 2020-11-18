@@ -28,18 +28,17 @@ html {
   @apply grid-cols-3;
   @apply gap-2;
   @apply p-2;
-  background-color: #ddd;
+  @apply bg-gray-500;
 }
 
 .panel {
   @apply rounded-xl;
-  @apply border;
-  @apply border-solid;
   @apply text-5xl;
   @apply font-bold;
   @apply text-center;
-  @apply border-black;
   @apply bg-white;
+
+  box-shadow: 4px 4px 8px 0 #1a202c66, -8px -8px 12px 0 #ffffff66;
 }
 .panel.empty {
   @apply invisible;
