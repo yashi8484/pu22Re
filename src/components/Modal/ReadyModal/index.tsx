@@ -14,7 +14,7 @@ export const ReadyModalComponent: FunctionComponent<ReadyModalProps> = ({
     <div className="ready-modal-emoji">🚀</div>
     <div className="ready-modal-title">READY?</div>
     <button className="ready-modal-button" onClick={onClickButton}>
-      START!
+      スタート！
     </button>
   </ModalComponent>
 );

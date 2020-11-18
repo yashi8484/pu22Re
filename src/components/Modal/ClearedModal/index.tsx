@@ -13,9 +13,9 @@ export const ClearedModalComponent: FunctionComponent<ClearedModalProps> = ({
 }) => (
   <ModalComponent visible={visible}>
     <img src={icon} className="cleared-modal-icon" />
-    <div className="cleared-modal-title">CONGRATULATIONS!</div>
+    <div className="cleared-modal-title">やった！</div>
     <button className="cleared-modal-button" onClick={onClickButton}>
-      NEXT
+      つぎへ
     </button>
   </ModalComponent>
 );

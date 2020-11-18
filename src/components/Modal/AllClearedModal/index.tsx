@@ -11,6 +11,6 @@ export const AllClearedModalComponent: FunctionComponent<AllClearedModalProps> =
 }) => (
   <ModalComponent visible={visible}>
     <img src={icon} className="all-cleared-modal-icon" />
-    <div className="all-cleared-modal-title">ALL CLEARED!!!</div>
+    <div className="all-cleared-modal-title">おめでとう！</div>
   </ModalComponent>
 );

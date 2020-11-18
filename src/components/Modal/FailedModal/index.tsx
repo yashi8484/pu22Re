@@ -13,9 +13,9 @@ export const FailedModalComponent: FunctionComponent<FailedModalProps> = ({
 }) => (
   <ModalComponent visible={visible}>
     <img src={icon} className="failed-modal-icon" />
-    <div className="failed-modal-title">FAILED...</div>
+    <div className="failed-modal-title">ざんねん...</div>
     <button className="failed-modal-button" onClick={onClickButton}>
-      RETRY!
+      もういちど
     </button>
   </ModalComponent>
 );
