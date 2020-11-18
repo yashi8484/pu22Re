@@ -76,6 +76,15 @@ html {
   @apply text-4xl;
   @apply text-center;
 }
+.ready-modal-icon,
+.cleared-modal-icon,
+.failed-modal-icon,
+.all-cleared-modal-icon {
+  @apply w-24;
+  @apply block;
+  @apply mx-auto;
+  @apply my-2;
+}
 .ready-modal-title,
 .cleared-modal-title,
 .failed-modal-title,

@@ -1,5 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 import { ModalComponent } from '../';
+import icon from '../../../assets/cake.svg';
 
 type ClearedModalProps = {
   visible: boolean;
@@ -11,7 +12,7 @@ export const ClearedModalComponent: FunctionComponent<ClearedModalProps> = ({
   onClickButton,
 }) => (
   <ModalComponent visible={visible}>
-    <div className="cleared-modal-emoji">🎉</div>
+    <img src={icon} className="cleared-modal-icon" />
     <div className="cleared-modal-title">CONGRATULATIONS!</div>
     <button className="cleared-modal-button" onClick={onClickButton}>
       NEXT

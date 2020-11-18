@@ -1,5 +1,6 @@
 import { h, FunctionComponent } from 'preact';
 import { ModalComponent } from '../';
+import icon from '../../../assets/sad.svg';
 
 type FailedModalProps = {
   visible: boolean;
@@ -11,7 +12,7 @@ export const FailedModalComponent: FunctionComponent<FailedModalProps> = ({
   onClickButton,
 }) => (
   <ModalComponent visible={visible}>
-    <div className="failed-modal-emoji">☔️</div>
+    <img src={icon} className="failed-modal-icon" />
     <div className="failed-modal-title">FAILED...</div>
     <button className="failed-modal-button" onClick={onClickButton}>
       RETRY!
