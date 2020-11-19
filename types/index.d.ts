@@ -38,6 +38,7 @@ type Stage = {
   puzzle: Puzzle;
   timeLimit: number;
   color: string;
+  title: string;
 };
 type StageTimeLimit = Stage['timeLimit'];
 type Stages = Stage[];

@@ -41,11 +41,13 @@ export const stagesState = atom<Stages>({
       puzzle: getNumericPanelPuzzle(3),
       timeLimit: 142,
       color: 'var(--color-blue)',
+      title: 'その1',
     },
     {
       puzzle: getAlphabetPanelPuzzle(3),
       timeLimit: 142,
       color: 'var(--color-green)',
+      title: 'その2',
     },
   ],
 });

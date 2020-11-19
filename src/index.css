@@ -103,6 +103,10 @@ html {
   @apply font-bold;
   @apply text-center;
 }
+.ready-modal-sub-title {
+  @apply mb-3;
+  @apply text-center;
+}
 .ready-modal-button,
 .cleared-modal-button,
 .failed-modal-button {

@@ -5,17 +5,20 @@ import {
   isReadySelector,
   isNotReadySelector,
   currentStageNameSelector,
+  currentStageSelector,
 } from '../../../selectors';
 
 export const ReadyModal: FunctionComponent = () => {
   const isNotReady = useRecoilValue(isNotReadySelector);
   const setIsReady = useSetRecoilState(isReadySelector);
   const stageName = useRecoilValue(currentStageNameSelector);
+  const currentStage = useRecoilValue(currentStageSelector);
 
   return (
     <ReadyModalComponent
       visible={isNotReady}
       title={stageName}
+      subTitle={currentStage.title}
       onClickButton={() => setIsReady(true)}
     />
   );
