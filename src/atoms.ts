@@ -37,7 +37,15 @@ export const gameState = atom<GameState>({
 export const stagesState = atom<Stages>({
   key: 'stagesState',
   default: [
-    { puzzle: getNumericPanelPuzzle(3), timeLimit: 142 },
-    { puzzle: getAlphabetPanelPuzzle(3), timeLimit: 142 },
+    {
+      puzzle: getNumericPanelPuzzle(3),
+      timeLimit: 142,
+      color: 'var(--color-blue)',
+    },
+    {
+      puzzle: getAlphabetPanelPuzzle(3),
+      timeLimit: 142,
+      color: 'var(--color-green)',
+    },
   ],
 });

@@ -4,6 +4,7 @@
   --color-red: #fc234d;
   --color-yellow: #ffd95c;
   --color-white: #fafaf0;
+  --stage-color: var(--color-blue);
 }
 
 @tailwind base;
@@ -36,7 +37,8 @@ html {
   @apply grid-cols-3;
   @apply gap-2;
   @apply p-2;
-  @apply bg-gray-500;
+
+  background-color: var(--stage-color);
 }
 
 .panel {
@@ -72,7 +74,7 @@ html {
   @apply rounded-xl;
   @apply bg-white;
 
-  box-shadow: 20px 20px var(--color-blue);
+  box-shadow: 20px 20px var(--stage-color);
 }
 
 .ready-modal-emoji,
@@ -111,8 +113,9 @@ html {
   @apply py-2;
   @apply rounded-full;
   @apply text-center;
-  @apply bg-blue;
   @apply text-white;
+
+  background-color: var(--stage-color);
 }
 
 .count-down-seconds {

@@ -37,6 +37,7 @@ interface NeighborPanelCoordinates {
 type Stage = {
   puzzle: Puzzle;
   timeLimit: number;
+  color: string;
 };
 type StageTimeLimit = Stage['timeLimit'];
 type Stages = Stage[];
