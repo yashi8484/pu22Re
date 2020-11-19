@@ -39,6 +39,7 @@ type Stage = {
   timeLimit: number;
   color: string;
   title: string;
+  icon: string;
 };
 type StageTimeLimit = Stage['timeLimit'];
 type Stages = Stage[];

@@ -17,6 +17,7 @@ export const ReadyModal: FunctionComponent = () => {
   return (
     <ReadyModalComponent
       visible={isNotReady}
+      icon={currentStage.icon}
       title={stageName}
       subTitle={currentStage.title}
       onClickButton={() => setIsReady(true)}

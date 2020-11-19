@@ -3,6 +3,8 @@ import {
   getAlphabetPanelPuzzle,
   getNumericPanelPuzzle,
 } from './utils/getPuzzle';
+import soundIcon from './assets/sound.svg';
+import calculatorIcon from './assets/calculator.svg';
 
 export const stageIndexState = atom<number>({
   key: 'stageIndexState',
@@ -42,12 +44,14 @@ export const stagesState = atom<Stages>({
       timeLimit: 142,
       color: 'var(--color-blue)',
       title: 'その1',
+      icon: calculatorIcon,
     },
     {
       puzzle: getAlphabetPanelPuzzle(3),
       timeLimit: 142,
       color: 'var(--color-green)',
       title: 'その2',
+      icon: soundIcon,
     },
   ],
 });

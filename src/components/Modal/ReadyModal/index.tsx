@@ -3,6 +3,7 @@ import { ModalComponent } from '../';
 
 type ReadyModalProps = {
   visible: boolean;
+  icon: string;
   title: string;
   subTitle: string;
   onClickButton: () => void;
@@ -10,12 +11,13 @@ type ReadyModalProps = {
 
 export const ReadyModalComponent: FunctionComponent<ReadyModalProps> = ({
   visible,
+  icon,
   title,
   subTitle,
   onClickButton,
 }) => (
   <ModalComponent visible={visible}>
-    <div className="ready-modal-emoji">🚀</div>
+    <img src={icon} className="ready-modal-icon" />
     <div className="ready-modal-title">{title}</div>
     <div className="ready-modal-sub-title">{subTitle}</div>
     <button className="ready-modal-button" onClick={onClickButton}>
