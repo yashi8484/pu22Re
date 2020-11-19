@@ -27,6 +27,11 @@ export const currentStageSelector = selector<Stage>({
   },
 });
 
+export const currentStageNameSelector = selector<string>({
+  key: 'currentStageNameSelector',
+  get: ({ get }) => `ステージ${get(stageIndexState) + 1}`,
+});
+
 export const nextStageSelector = selector<Stage | undefined>({
   key: 'nextStageSelector',
   get: ({ get }) => {
