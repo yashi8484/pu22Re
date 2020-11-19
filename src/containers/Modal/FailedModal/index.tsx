@@ -12,6 +12,7 @@ export const FailedModal: FunctionComponent = () => {
   const isFailed = useRecoilValue(isFailedSelector);
   const setIsNotReady = useSetRecoilState(isNotReadySelector);
   const resetCurrentStage = useResetRecoilState(currentStageSelector);
+  const currentStage = useRecoilValue(currentStageSelector);
 
   const onClickButton = useCallback(() => {
     resetCurrentStage();
@@ -21,6 +22,7 @@ export const FailedModal: FunctionComponent = () => {
   return (
     <FailedModalComponent
       visible={isFailed}
+      subTitle={currentStage.hint}
       onClickButton={() => onClickButton()}
     />
   );

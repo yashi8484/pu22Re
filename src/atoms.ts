@@ -45,6 +45,7 @@ export const stagesState = atom<Stages>({
       color: 'var(--color-blue)',
       title: 'その1',
       icon: calculatorIcon,
+      hint: 'ヒント1',
     },
     {
       puzzle: getAlphabetPanelPuzzle(3),
@@ -52,6 +53,7 @@ export const stagesState = atom<Stages>({
       color: 'var(--color-green)',
       title: 'その2',
       icon: soundIcon,
+      hint: 'ヒント2',
     },
   ],
 });

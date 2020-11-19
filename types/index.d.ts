@@ -40,6 +40,7 @@ type Stage = {
   color: string;
   title: string;
   icon: string;
+  hint: string;
 };
 type StageTimeLimit = Stage['timeLimit'];
 type Stages = Stage[];
