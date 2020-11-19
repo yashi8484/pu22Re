@@ -1,3 +1,11 @@
+:root {
+  --color-blue: #0678d6;
+  --color-green: #11c742;
+  --color-red: #fc234d;
+  --color-yellow: #ffd95c;
+  --color-white: #fafaf0;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -64,7 +72,7 @@ html {
   @apply rounded-xl;
   @apply bg-white;
 
-  box-shadow: 20px 20px #0678d6;
+  box-shadow: 20px 20px var(--color-blue);
 }
 
 .ready-modal-emoji,

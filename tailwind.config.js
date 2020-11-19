@@ -7,11 +7,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blue: '#0678D6',
-        green: '#11C742',
-        red: '#FC234D',
-        yellow: '#FFD95C',
-        white: '#FAFAF0'
+        blue: 'var(--color-blue)',
+        green: 'var(--color-green)',
+        red: 'var(--color-red)',
+        yellow: 'var(--color-yellow)',
+        white: 'var(--color-white)'
       }
     }
   },
