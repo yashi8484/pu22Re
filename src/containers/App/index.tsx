@@ -1,13 +1,19 @@
 import { h, FunctionComponent } from 'preact';
 import { useEffect } from 'preact/hooks';
-import { useSetRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { AppComponent } from '../../components/App';
-import { isNotReadySelector } from '../../selectors';
+import { isOnboardingSelector } from '../../selectors';
 
 export const App: FunctionComponent = () => {
-  const setIsNotReady = useSetRecoilState(isNotReadySelector);
+  const [isOnboarding, setIsOnboarding] = useRecoilState(isOnboardingSelector);
 
-  useEffect(() => setIsNotReady(true), []);
+  useEffect(() => {
+    document.documentElement.style.setProperty(
+      '--theme-color',
+      'var(--color-orange)',
+    );
+    setIsOnboarding(true);
+  }, []);
 
-  return <AppComponent />;
+  return <AppComponent stagesVisible={!isOnboarding} />;
 };

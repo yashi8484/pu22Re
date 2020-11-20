@@ -69,7 +69,7 @@ html {
 .modal-card {
   @apply w-10/12;
   @apply max-w-xs;
-  @apply p-4;
+  @apply p-5;
   @apply rounded-xl;
   @apply bg-white;
 
@@ -84,6 +84,7 @@ html {
   @apply text-4xl;
   @apply text-center;
 }
+.onboarding-modal-icon,
 .ready-modal-icon,
 .cleared-modal-icon,
 .failed-modal-icon,
@@ -91,22 +92,27 @@ html {
   @apply w-24;
   @apply block;
   @apply mx-auto;
-  @apply my-2;
 }
+.onboarding-modal-title,
 .ready-modal-title,
 .cleared-modal-title,
 .failed-modal-title,
 .all-cleared-modal-title {
-  @apply m-3;
+  @apply mx-auto;
+  @apply my-5;
   @apply text-3xl;
   @apply font-bold;
   @apply text-center;
 }
+.onboarding-modal-title {
+  line-height: normal;
+}
 .ready-modal-sub-title,
 .failed-modal-sub-title {
-  @apply mb-3;
+  @apply mb-5;
   @apply text-center;
 }
+.onboarding-modal-button,
 .ready-modal-button,
 .cleared-modal-button,
 .failed-modal-button {
@@ -120,6 +126,14 @@ html {
   @apply text-white;
 
   background-color: var(--theme-color);
+}
+.onboarding-modal-ruby {
+  @apply text-xs;
+  @apply font-medium;
+}
+.onboarding-modal-description {
+  @apply mb-5;
+  @apply text-sm;
 }
 
 .count-down-seconds {
