@@ -20,7 +20,7 @@ export const App: FunctionComponent = () => {
   useEffect(() => {
     setCurrentStage(stages[currentStageIndex]);
     document.documentElement.style.setProperty(
-      '--stage-color',
+      '--theme-color',
       stages[currentStageIndex].color,
     );
   }, [currentStageIndex]);

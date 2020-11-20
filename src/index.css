@@ -1,10 +1,9 @@
 :root {
   --color-blue: #0678d6;
   --color-green: #11c742;
-  --color-red: #fc234d;
-  --color-yellow: #ffd95c;
+  --color-orange: #ff783b;
   --color-white: #fafad2;
-  --stage-color: var(--color-blue);
+  --theme-color: var(--color-orange);
 }
 
 @tailwind base;
@@ -38,7 +37,7 @@ html {
   @apply gap-2;
   @apply p-2;
 
-  background-color: var(--stage-color);
+  background-color: var(--theme-color);
 }
 
 .panel {
@@ -74,7 +73,7 @@ html {
   @apply rounded-xl;
   @apply bg-white;
 
-  box-shadow: 20px 20px var(--stage-color);
+  box-shadow: 20px 20px var(--theme-color);
 }
 
 .ready-modal-emoji,
@@ -120,7 +119,7 @@ html {
   @apply text-center;
   @apply text-white;
 
-  background-color: var(--stage-color);
+  background-color: var(--theme-color);
 }
 
 .count-down-seconds {
