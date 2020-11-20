@@ -42,6 +42,12 @@ export const nextStageSelector = selector<Stage | undefined>({
   },
 });
 
+export const isOnboardingSelector = selector({
+  key: 'isOnboardingSelector',
+  get: ({ get }) => get(gameState) === 'onboarding',
+  set: ({ set }) => set(gameState, 'onboarding'),
+});
+
 export const isNotReadySelector = selector({
   key: 'isNotReadySelector',
   get: ({ get }) => get(gameState) === 'notReady',

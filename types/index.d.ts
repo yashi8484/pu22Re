@@ -46,6 +46,7 @@ type StageTimeLimit = Stage['timeLimit'];
 type Stages = Stage[];
 
 type GameState =
+  | 'onboarding'
   | 'notReady'
   | 'ready'
   | 'playing'

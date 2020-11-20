@@ -33,7 +33,7 @@ export const timeLimitState = atom<StageTimeLimit>({
 
 export const gameState = atom<GameState>({
   key: 'gameState',
-  default: 'notReady',
+  default: 'onboarding',
 });
 
 export const stagesState = atom<Stages>({
