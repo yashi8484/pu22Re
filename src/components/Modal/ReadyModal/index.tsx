@@ -19,7 +19,7 @@ export const ReadyModalComponent: FunctionComponent<ReadyModalProps> = ({
   <ModalComponent visible={visible}>
     <img src={icon} className="ready-modal-icon" />
     <div className="ready-modal-title">{title}</div>
-    <div className="ready-modal-sub-title">{subTitle}</div>
+    <div className="ready-modal-sub-title">「{subTitle}」</div>
     <button className="ready-modal-button" onClick={onClickButton}>
       スタート！
     </button>

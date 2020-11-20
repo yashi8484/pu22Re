@@ -22,7 +22,7 @@ export const FailedModal: FunctionComponent = () => {
   return (
     <FailedModalComponent
       visible={isFailed}
-      subTitle={currentStage.hint}
+      subTitle={`ヒント: ${currentStage.hint}`}
       onClickButton={() => onClickButton()}
     />
   );
