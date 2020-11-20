@@ -1,33 +1,112 @@
 import { swapPanels } from './swapPanels';
 
-export const getNumericPanelPuzzle = (size: PuzzleSize): Puzzle => {
-  const answerPanels = [...Array(size ** 2)].map((_, n) =>
-    n === 0
-      ? { key: `panel-${n + 1}`, order: n + 1 }
-      : { key: `panel-${n + 1}`, order: n + 1, text: String(n + 1) },
-  );
-  const panels = swapPanels([0, 1], answerPanels);
-  return {
-    answerPanels: answerPanels,
-    panels: panels,
-    size: size,
-  };
+export const getNumericPanelPuzzle = (): Puzzle => {
+  const answerPanels = [
+    {
+      key: 'panel-1',
+      order: 7,
+      text: 1,
+    },
+    {
+      key: 'panel-2',
+      order: 8,
+      text: 2,
+    },
+    {
+      key: 'panel-3',
+      order: 9,
+      text: 3,
+    },
+    {
+      key: 'panel-4',
+      order: 4,
+      text: 4,
+    },
+    {
+      key: 'panel-5',
+      order: 5,
+      text: 5,
+    },
+    {
+      key: 'panel-6',
+      order: 6,
+      text: 6,
+    },
+    {
+      key: 'panel-7',
+      order: 1,
+    },
+    {
+      key: 'panel-8',
+      order: 2,
+      text: 8,
+    },
+    {
+      key: 'panel-9',
+      order: 3,
+      text: 9,
+    },
+  ];
+  return getPanelPuzzle(answerPanels);
 };
 
-export const getAlphabetPanelPuzzle = (size: PuzzleSize): Puzzle => {
-  const answerPanels = [...Array(size ** 2)].map((_, n) =>
-    n === 0
-      ? { key: `panel-${n + 1}`, order: n + 1 }
-      : {
-          key: `panel-${n + 1}`,
-          order: n + 1,
-          text: String(String.fromCharCode('A'.charCodeAt(0) + n)),
-        },
-  );
-  const panels = swapPanels([0, 3], answerPanels);
+export const getIrohaPanelPuzzle = (): Puzzle => {
+  const letters =
+    'いろはにほへとちりぬるをわがよたれそつねならむうゐのおくやまけふこえてあさきゆめみしゑひもせすん';
+  const answerPanels = [
+    {
+      key: 'panel-1',
+      order: 3,
+      text: letters[0],
+    },
+    {
+      key: 'panel-2',
+      order: 6,
+      text: letters[1],
+    },
+    {
+      key: 'panel-3',
+      order: 9,
+      text: letters[2],
+    },
+    {
+      key: 'panel-4',
+      order: 2,
+      text: letters[3],
+    },
+    {
+      key: 'panel-5',
+      order: 5,
+      text: letters[4],
+    },
+    {
+      key: 'panel-6',
+      order: 8,
+      text: letters[5],
+    },
+    {
+      key: 'panel-7',
+      order: 1,
+    },
+    {
+      key: 'panel-8',
+      order: 4,
+      text: letters[7],
+    },
+    {
+      key: 'panel-9',
+      order: 7,
+      text: letters[8],
+    },
+  ];
+  return getPanelPuzzle(answerPanels);
+};
+
+const getPanelPuzzle = (answerPanels: Panels): Puzzle => {
+  const panels = swapPanels([6, 3], answerPanels);
   return {
     answerPanels: answerPanels,
     panels: panels,
-    size: size,
+    size: 3,
   };
 };

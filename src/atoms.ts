@@ -1,8 +1,5 @@
 import { atom } from 'recoil';
-import {
-  getAlphabetPanelPuzzle,
-  getNumericPanelPuzzle,
-} from './utils/getPuzzle';
+import { getIrohaPanelPuzzle, getNumericPanelPuzzle } from './utils/getPuzzle';
 import soundIcon from './assets/sound.svg';
 import calculatorIcon from './assets/calculator.svg';
 
@@ -40,20 +37,20 @@ export const stagesState = atom<Stages>({
   key: 'stagesState',
   default: [
     {
-      puzzle: getNumericPanelPuzzle(3),
-      timeLimit: 142,
+      puzzle: getNumericPanelPuzzle(),
+      timeLimit: 22,
       color: 'var(--color-blue)',
-      title: 'その1',
+      title: 'かず',
       icon: calculatorIcon,
-      hint: 'ヒント1',
+      hint: 'アイコン',
     },
     {
-      puzzle: getAlphabetPanelPuzzle(3),
+      puzzle: getIrohaPanelPuzzle(),
       timeLimit: 142,
       color: 'var(--color-green)',
-      title: 'その2',
+      title: 'うた',
       icon: soundIcon,
-      hint: 'ヒント2',
+      hint: '｜｜｜',
     },
   ],
 });
