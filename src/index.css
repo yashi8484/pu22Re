@@ -1,7 +1,7 @@
 :root {
-  --color-blue: #0678d6;
-  --color-green: #11c742;
   --color-orange: #ff783b;
+  --color-green: #11c742;
+  --color-blue: #0678d6;
   --color-white: #fafad2;
   --theme-color: var(--color-orange);
 }

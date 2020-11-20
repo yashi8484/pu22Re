@@ -7,10 +7,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        blue: 'var(--color-blue)',
+        orange: 'var(--color-orange)',
         green: 'var(--color-green)',
-        red: 'var(--color-red)',
-        yellow: 'var(--color-yellow)',
+        blue: 'var(--color-blue)',
         white: 'var(--color-white)'
       }
     }
