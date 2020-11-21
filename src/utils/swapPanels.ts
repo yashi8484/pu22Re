@@ -4,8 +4,7 @@ import {
   getNeighborEmptyPanelIndex,
 } from './panels';
 
-// TODO: change to not export
-export const swapPanels = (
+const swapPanels = (
   targetIndexes: [number, number],
   panels: Panels,
 ): Panels => {
@@ -20,7 +19,7 @@ export const swapPanels = (
   return newPanels;
 };
 
-const swapPanel = (panelA: Panel, panelB: Panel): [Panel, Panel] => [
+export const swapPanel = (panelA: Panel, panelB: Panel): [Panel, Panel] => [
   { ...panelA, order: panelB.order },
   { ...panelB, order: panelA.order },
 ];

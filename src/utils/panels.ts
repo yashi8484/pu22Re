@@ -4,6 +4,7 @@ import {
   convertPanelCoordinateToIndex,
 } from './panelCoordinate';
 import { isEmptyPanel } from './puzzlePanel';
+import { swapPanel } from './swapPanels';
 
 export const getPanelIndex = (panelId: PanelId, panels: Panels): number =>
   panels.findIndex((p) => p.key === panelId);
@@ -58,3 +59,10 @@ export const isCorrect = (
     const p = panels.find((p) => p.key === ap.key);
     return p && p.order === ap.order;
   });
+
+export const shufflePanelOrders = (panels: Panels): void => {
+  for (let i = panels.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [panels[i], panels[j]] = swapPanel(panels[i], panels[j]);
+  }
+};

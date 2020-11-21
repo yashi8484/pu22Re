@@ -1,4 +1,4 @@
-import { swapPanels } from './swapPanels';
+import { shufflePanelOrders } from './panels';
 
 export const getNumericPanelPuzzle = (): Puzzle => {
   const answerPanels = [
@@ -103,7 +103,8 @@ export const getIrohaPanelPuzzle = (): Puzzle => {
 };
 
 const getPanelPuzzle = (answerPanels: Panels): Puzzle => {
-  const panels = swapPanels([6, 3], answerPanels);
+  const panels = answerPanels.slice(0);
+  shufflePanelOrders(panels);
   return {
     answerPanels: answerPanels,
     panels: panels,
