@@ -19,7 +19,7 @@ export const OnboardingModalComponent: FunctionComponent<OnboardingModalProps> =
     </div>
     <div className="onboarding-modal-description">
       パネルをタップ(クリック)してうごかそう。 <br />
-      よ〜くかんがえれば、せいかいがわかるはず。
+      じかんないに、せいかいにたどりつこう！
     </div>
     <button className="onboarding-modal-button" onClick={onClickButton}>
       あそぶ！

@@ -26,7 +26,7 @@ export const StageComponent: FunctionComponent<StageProps> = ({
     {isReady ? (
       <CountDown
         initialSeconds={3}
-        finishedText="START!"
+        finishedText="スタート!"
         onFinished={() => onCountDownFinished()}
       />
     ) : null}

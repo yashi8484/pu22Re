@@ -25,6 +25,10 @@ html {
   @apply mx-auto;
 }
 
+.timer-prefix {
+  @apply text-base;
+  @apply font-normal;
+}
 .timer {
   @apply text-3xl;
   @apply font-bold;

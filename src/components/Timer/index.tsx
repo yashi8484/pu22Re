@@ -11,6 +11,7 @@ export const TimerComponent: FunctionComponent<TimerProps> = ({
   format = 'minutesAndSeconds',
 }) => (
   <div className="timer">
+    <span className="timer-prefix">のこり</span>
     {format === 'minutesAndSeconds'
       ? getMinutesAndSecondsString(seconds)
       : seconds}
