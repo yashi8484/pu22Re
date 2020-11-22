@@ -43,11 +43,14 @@ html {
 .panel {
   @apply rounded-xl;
   @apply text-5xl;
-  @apply font-bold;
   @apply text-center;
-  @apply bg-white;
+  @apply text-white;
+  @apply bg-gradient-to-br;
+  @apply from-yellow-800;
+  @apply to-black;
 
-  box-shadow: 4px 4px 8px 0 #1a202c66, -8px -8px 12px 0 #ffffff66;
+  /* https://neumorphism.io/#0678d6 */
+  box-shadow: 4px 4px 8px 0 #023056, -4px -4px 8px 0 #0ac0ff;
 }
 .panel.empty {
   @apply invisible;
