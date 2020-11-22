@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { timeLimitState } from '../../atoms';
 import { TimerComponent } from '../../components/Timer';
 import { useCountDownSeconds } from '../../hooks/useCountDownSeconds';
-import { isPlayingSelector } from '../../selectors';
+import { currentStageSelector, isPlayingSelector } from '../../selectors';
 
 type TimerProps = {
   onFinished: () => void;
@@ -13,6 +13,7 @@ type TimerProps = {
 export const Timer: FunctionComponent<TimerProps> = ({ onFinished }) => {
   const timeLimit = useRecoilValue(timeLimitState);
   const isPlaying = useRecoilValue(isPlayingSelector);
+  const currentStage = useRecoilValue(currentStageSelector);
   const countDownFinishedHandler = useCallback(
     () => onFinished && onFinished(),
     [onFinished],
@@ -25,5 +26,5 @@ export const Timer: FunctionComponent<TimerProps> = ({ onFinished }) => {
     setIsActive(isPlaying);
   }, [isPlaying]);
 
-  return <TimerComponent seconds={seconds} />;
+  return <TimerComponent seconds={seconds} format={currentStage.timerFormat} />;
 };

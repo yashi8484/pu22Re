@@ -34,9 +34,12 @@ interface NeighborPanelCoordinates {
   bottom: PanelCoordinate;
 }
 
+type TimerFormat = 'minutesAndSeconds' | 'seconds';
+
 type Stage = {
   puzzle: Puzzle;
   timeLimit: number;
+  timerFormat?: TimerFormat;
   color: string;
   title: string;
   icon: string;

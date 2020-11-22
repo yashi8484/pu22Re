@@ -39,6 +39,7 @@ export const stagesState = atom<Stages>({
     {
       puzzle: getNumericPanelPuzzle(),
       timeLimit: 222,
+      timerFormat: 'seconds',
       color: 'var(--color-blue)',
       title: 'かず',
       icon: calculatorIcon,
