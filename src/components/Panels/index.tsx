@@ -7,7 +7,7 @@ type PanelsProps = {
 };
 
 export const PanelsComponent: FunctionComponent<PanelsProps> = ({ panels }) => (
-  <div className="panel-wrapper">
+  <div className="panels">
     {panels.map((panel) =>
       isPuzzlePanel(panel) ? (
         <Panel id={panel.key} order={panel.order} text={panel.text} />

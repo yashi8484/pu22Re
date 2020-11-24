@@ -35,7 +35,7 @@ html {
   @apply text-center;
 }
 
-.panel-wrapper {
+.panels {
   @apply grid;
   @apply grid-cols-3;
   @apply gap-2;
