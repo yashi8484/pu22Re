@@ -49,8 +49,9 @@ html {
   @apply rounded-xl;
 
   background-color: var(--theme-color);
-  /* https://neumorphism.io/#0678d6 */
-  box-shadow: inset 4px 4px 4px 0 #023056, inset -4px -4px 4px 0 #0ac0ff;
+  /* gray-900: #1A202C https://v1.tailwindcss.com/docs/customizing-colors#default-color-palette */
+  /* --color-white: #fafad2 */
+  box-shadow: inset 4px 4px 4px 0 #1a202c99, inset -4px -4px 4px 0 #fafad244;
 }
 
 .panel {
@@ -62,8 +63,9 @@ html {
   @apply from-yellow-800;
   @apply to-black;
 
-  /* https://neumorphism.io/#0678d6 */
-  box-shadow: 4px 4px 8px 0 #023056, -4px -4px 8px 0 #0ac0ff;
+  /* gray-900: #1A202C https://v1.tailwindcss.com/docs/customizing-colors#default-color-palette */
+  /* --color-white: #fafad2 */
+  box-shadow: 4px 4px 8px 0 #1a202c99, -4px -4px 8px 0 #fafad244;
 }
 .panel.empty {
   @apply invisible;
