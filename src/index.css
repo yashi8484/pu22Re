@@ -35,13 +35,22 @@ html {
   @apply text-center;
 }
 
+.panels-wrapper {
+  @apply p-2;
+
+  background-color: var(--theme-color);
+}
+
 .panels {
   @apply grid;
   @apply grid-cols-3;
   @apply gap-2;
   @apply p-2;
+  @apply rounded-xl;
 
   background-color: var(--theme-color);
+  /* https://neumorphism.io/#0678d6 */
+  box-shadow: inset 4px 4px 4px 0 #023056, inset -4px -4px 4px 0 #0ac0ff;
 }
 
 .panel {
