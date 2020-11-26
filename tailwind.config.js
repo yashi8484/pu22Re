@@ -1,9 +1,9 @@
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
-    // purgeLayersByDefault: true,
+    purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: ['./src/**/*.tsx'],
   theme: {
     extend: {
       colors: {
